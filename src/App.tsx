@@ -1,6 +1,40 @@
 import { Box, Paper, Typography } from '@mui/material';
 import Typewritter from 'typewriter-effect';
+import L from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
+
+function LeafletMapComponent() {
+  const position: [number, number] = [42.729907, -73.67663];
+
+  const defaultIcon = L.icon({
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    iconSize: [25, 41],
+    iconAnchor: [12.5, 41],
+    popupAnchor: [0, -41],
+  });
+
+  return (
+    <Box sx={{margin: 'auto', width: {xs: '100%', sm: '80%', md: '50%'}}}>
+      <MapContainer center={position} zoom={15} style={{ width: '100%', height: '400px' }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={position} icon={defaultIcon}>
+          <Popup>
+            Rensselaer Union<br/><br/>
+            1761 15th St, <br/>
+            Troy, NY <br/>
+            12180
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </Box>
+  );
+}
 
 function App() {
   return (
@@ -20,7 +54,7 @@ function App() {
           Northeastern North America International Collegiate Programming Contest
         </Typography>
       </Box>
-      <Box sx={{backgroundColor: '#fde7e8', height: '100vh'}}>
+      <Box sx={{backgroundColor: '#fde7e8', height: 'auto', marginBottom: '100px'}}>
         <Box>
           <Typography align='center' variant='h5' sx={{fontWeight: 'bold', paddingTop: '20px'}}>
             General Information
@@ -35,7 +69,8 @@ function App() {
             Directions
           </Typography>
           <Typography align='center' sx={{margin: '20px'}}>
-            TBD
+            The event will be hosted in the RPI Student Union<div style={{marginBottom:'20px'}}/>
+            <LeafletMapComponent/>
           </Typography>
         </Box>
       </Box>
