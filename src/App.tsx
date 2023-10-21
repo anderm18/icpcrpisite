@@ -1,4 +1,4 @@
-import { Box, CardContent, Paper, Toolbar, Tooltip, Typography } from '@mui/material';
+import { Box, CardContent, Toolbar, Tooltip, Typography } from '@mui/material';
 import Typewritter from 'typewriter-effect';
 import L from 'leaflet';
 import EmailIcon from '@mui/icons-material/Email';
