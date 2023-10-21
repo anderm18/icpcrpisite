@@ -1,9 +1,15 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, CardContent, Paper, Toolbar, Tooltip, Typography } from '@mui/material';
 import Typewritter from 'typewriter-effect';
 import L from 'leaflet';
+import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
+const iconStyle = {
+  width: '36px',
+  height: 'auto',
+} as const;
 
 function LeafletMapComponent() {
   const position: [number, number] = [42.729907, -73.67663];
@@ -54,7 +60,7 @@ function App() {
           Northeastern North America International Collegiate Programming Contest
         </Typography>
       </Box>
-      <Box sx={{backgroundColor: '#fde7e8', height: 'auto', marginBottom: '100px'}}>
+      <Box sx={{backgroundColor: '#fde7e8', height: 'auto', paddingBottom: '50px'}}>
         <Box>
           <Typography align='center' variant='h5' sx={{fontWeight: 'bold', paddingTop: '20px'}}>
             General Information
@@ -69,10 +75,42 @@ function App() {
             Directions
           </Typography>
           <Typography align='center' sx={{margin: '20px'}}>
-            The event will be hosted in the RPI Student Union<div style={{marginBottom:'20px'}}/>
+            The event will kickoff at the RPI Student Union<div style={{marginBottom:'20px'}}/>
             <LeafletMapComponent/>
+            <br/>You may also want to follow the <a href='https://info.rpi.edu/visit/directions'>driving directions for RPI.</a>
+            Once you arrive, please pull into the Horseshoe-shaped dropoff area in the front of the Union. The kickoff event is held in the entry lobby of the Union.
           </Typography>
         </Box>
+        <Box>
+          <Typography align='center' variant='h5' sx={{fontWeight: 'bold', paddingTop: '20px'}}>
+            Tentative Schedule
+          </Typography>
+          <Typography align='center' sx={{margin: '20px'}}>
+            ~10:30 AM EST - Opening ceremony begins<br/>
+            11:00 AM EST - Contest begins<br/>
+            3:00 PM EST - Scoreboard freezes<br/>
+            4:00 PM EST - Contest finishes<br/>
+            Shortly after - Closing ceremony/results
+          </Typography>
+        </Box>
+        <Box>
+          <Typography align='center' variant='h5' sx={{fontWeight: 'bold', paddingTop: '20px'}}>
+            Locations
+          </Typography>
+          <Typography align='center' sx={{margin: '20px'}}>
+            Located in the Rensselaer Union Rooms 3418, 3202, 3502, 3602 and the Darrin Communication Center 232, 236, and 239, and the Voorhees Computing Center North 219 and South 208
+          </Typography>
+        </Box>
+      </Box>
+      <Box sx={{backgroundColor: '#760A0D', minHeight: '50px'}}>
+        <Toolbar sx={{height: 'auto', color: 'white'}}>
+          <CardContent sx={{margin: 'auto'}}>
+              <Tooltip title={"we should probably put someones email here"} enterTouchDelay={0}>
+                  <EmailIcon sx={iconStyle} style={{ marginLeft: '10px', marginRight: '10px' }}/>
+              </Tooltip>
+              <a href={"https://github.com/anderm18/icpcrpisite"} style={{color: 'white', margin: '10px'}}><GitHubIcon sx={iconStyle}/></a>
+          </CardContent>
+        </Toolbar>
       </Box>
     </>
   );
