@@ -13,6 +13,7 @@ const iconStyle = {
 
 function LeafletMapComponent() {
   const position: [number, number] = [42.729202, -73.679311];
+  const oposition: [number, number] = [42.729202, -73.678811];
 
   const defaultIcon = L.icon({
     iconUrl: require('leaflet/dist/images/marker-icon.png'),
@@ -31,7 +32,16 @@ function LeafletMapComponent() {
         />
         <Marker position={position} icon={defaultIcon}>
           <Popup>
-            Darrin Communication Center<br/>Room 330<br/><br/>
+            Darrin Communication Center<br/><br/>
+            110 8th Street,<br/>
+            Troy, NY <br/>
+            12180, <br/>
+            United States of America
+          </Popup>
+        </Marker>
+        <Marker position={oposition} icon={defaultIcon}>
+          <Popup>
+            Low Center for Industrial Innovation<br/><br/>
             110 8th Street,<br/>
             Troy, NY <br/>
             12180, <br/>
@@ -85,9 +95,9 @@ function App() {
               Directions
             </Typography>
             <Typography align='center' sx={{margin: '20px'}}>
-              The event will kickoff at the Darring Communication Center (DCC)<div style={{marginBottom:'20px'}}/>
+              The event will kickoff at the Darring Communication Center (DCC). Contestant teams will be assigned to rooms in the DCC as well as the Low Center for Industrial Innovation (LOW). See below for a list of all rooms.<div style={{marginBottom:'20px'}}/>
               <LeafletMapComponent/>
-              <br/>You may also want to follow the <a href='https://info.rpi.edu/visit/directions'>driving directions for RPI.</a> Once you arrive, please proceed to Room 330 for the Opening Ceremony.
+              <br/>You may also want to follow the <a href='https://info.rpi.edu/visit/directions'>driving directions for RPI.</a> Once you arrive, please proceed to the DCC Great Hall for the registration and welcome event.<br/><br/>Parking information can be found on the <a href='https://info.rpi.edu/parking-and-transportation'>RPI Parking and Transportation information page.</a><br /><a href='https://icpcrpimap.s3.amazonaws.com/rpicampusnena.pdf'>Click here for a labeled map of RPI with the DCC, LOW, and Parking marked</a>
             </Typography>
           </Box>
           <Box>
@@ -95,11 +105,13 @@ function App() {
               Tentative Schedule
             </Typography>
             <Typography align='center' sx={{margin: '20px'}}>
-              ~10:30 AM EST - Opening ceremony begins<br/>
-              11:00 AM EST - Contest begins<br/>
-              3:00 PM EST - Scoreboard freezes<br/>
-              4:00 PM EST - Contest finishes<br/>
-              Shortly after - Closing ceremony/results
+              9:00 AM EST - Registration and Welcome Coffee, Hot Chocolate, and Donuts - DCC Great Hall<br/><br/>
+              9:45 AM EST - Opening ceremony begins - DCC 330<br/><br/>
+              11:00 AM EST - Contest begins - Room assigned to your team<br/><br/>
+              1:00 PM EST - Lunch is served - DCC Great Hall<br/><br/>
+              3:00 PM EST - Scoreboard freezes - Room assigned to your team<br/><br/>
+              4:00 PM EST - Contest finishes - Room assigned to your team<br/><br/>
+              4:30 PM EST - Closing ceremony/results - DCC 330
             </Typography>
           </Box>
           <Box>
